@@ -1,0 +1,54 @@
+<div class="container">
+<div class="row justify-content-center" *ngIf = "identity && identity.role == 'ROLE_ADMIN'">
+
+    <div class="col-6">
+    <h1>{{titulo}}</h1>
+    <hr>
+    
+    <div *ngIf="alertMessage">
+        <div class="alert alert-info" role="alert">
+            {{alertMessage}}
+        </div>
+    </div>
+</div>
+    <div class="w-100"></div>
+    <div class="col-6">
+
+        <form #formArtist= "ngForm" (ngSubmit)= "onSubmit()">
+            <p>
+                <label>Nombre</label>
+                <input type="text" #name="ngModel" name="name" [(ngModel)]= "artist.name" required class="form-control" />
+                <span *ngIf= "!name.valid && name.touched">
+                    El nombre es Obligatorio
+                </span> 
+            </p>
+            <p>
+                <label>Descripcion</label>
+                <textarea type="text" #definition="ngModel" name="definition" [(ngModel)]= "artist.definition" required class="form-control"></textarea>
+                <span *ngIf= "!definition.valid && definition.touched">
+                    La descripcion es obligatoria
+                </span> 
+            </p>
+
+            <div *ngIf = "is_edit">
+                <div class="artist_image_for_edit" *ngIf = "artist.image && artist.image != 'null'">
+                    <img src="{{url + 'get-image-artist/'+ artist.image}}" alt="" />
+                </div>
+                <p>
+                    <label>Sube la imagen del artista</label>
+                    <input type="file" placeholder="Subir imagen.." (change)="fileChangeEvent($event)" />
+                </p>
+            </div>
+
+            <input type="submit" value = "{{titulo}}" [disabled]="!formArtist.form.valid" class="btn btn-success" />
+            
+        </form> 
+    </div>
+</div>
+    <div class="row justify-content-center" *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+        <div class="col">
+            <h1>Error</h1>
+            <p>No tienes acceso a esta parte de la aplicacion</p>
+        </div>
+    </div>
+</div>
