@@ -6,7 +6,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 Please go to [kind-of-spotify-app](https://jonasrivas.github.io/frontend_kind_of_spotify) it was deployed on github pages
 
 ## How to use
-The is already a demo user created in order to see the internal functionality, pease add demo@demo.com as user and demo as pwd once inside the app fell free no navigate throuh each album, artist or sogn, 
+For security reasons "Register" button has been disabled, There is already a demo user created in order to see the internal functionality, pease add demo@demo.com as user and demo as pwd once inside the app fell free no navigate throuh each album, artist or sogn, 
 
 ## Steps to reproduce (Ideal scenario)
 
@@ -16,4 +16,4 @@ The is already a demo user created in order to see the internal functionality, p
 * click over "Black in Black" album
 * click over green button
 
-#ENJOY :)
+# ENJOY :)
